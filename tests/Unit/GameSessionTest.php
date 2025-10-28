@@ -5,6 +5,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use App\GameSession;
 
 class GameSessionTest extends TestCase
@@ -23,10 +24,7 @@ class GameSessionTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider constructorProvider
-     * Teste la construction d'une GameSession avec différents statuts
-     */
+    #[DataProvider('constructorProvider')]
     public function testConstructor($sessionId, $startDate, $status)
     {
         // Test GameSession creation
@@ -51,10 +49,7 @@ class GameSessionTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider endDateProvider
-     * Teste la modification et la récupération de endDate
-     */
+    #[DataProvider('endDateProvider')]
     public function testSetAndGetEndDate($startDate, $endDate)
     {
         $session = new GameSession('sess', $startDate);
@@ -77,9 +72,11 @@ class GameSessionTest extends TestCase
     }
 
     /**
+     *
      * @dataProvider statusProvider
      * Teste la modification et la récupération du status
      */
+    #[DataProvider('statusProvider')]
     public function testSetAndGetStatus($status)
     {
         $session = new GameSession('sess', new \DateTime('2025-10-28 10:00:00'));
