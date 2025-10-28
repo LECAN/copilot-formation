@@ -23,5 +23,22 @@ Règles de gestion du code du projet :
 
 ---------------------------
 avant tout envoie par l'utilisateur tu vas :
+
 0. lister les instructions que tu vas suivre
 1. attendre le go de l'utilisateur
+
+---------------------------
+
+workflow de création de branch :
+
+A chaque étape du workflow, tu dois attendre le go de l'utilisateur pour passer à l'étape suivante.
+Utilise docker pour toute commande nécessitant un environnement PHP.
+Utilise le fichier #docker-compose.yml pour connaitre le répertoire de travail du container.
+Installer phpunit avec composer si ce n'est pas déjà fait.
+
+0. Demander le nom de la branch à l'utilisateur
+1. Créer la branch localement
+2. Créer un commit avec tous les changements et un description claire de la fonctionnalité
+3. lancer le composer install
+4. lancer les tests unitaires
+5. Pousser la branch sur le remote

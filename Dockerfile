@@ -5,3 +5,13 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
+
+# Install system dependencies for Composer and PHPUnit
+RUN apt-get update \
+    && apt-get install -y git zip unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php -r "unlink('composer-setup.php');"
