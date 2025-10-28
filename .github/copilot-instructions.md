@@ -23,5 +23,6 @@ Règles de gestion du code du projet :
 
 ---------------------------
 avant tout envoie par l'utilisateur tu vas :
+
 0. lister les instructions que tu vas suivre
 1. attendre le go de l'utilisateur
